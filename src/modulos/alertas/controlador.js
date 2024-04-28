@@ -17,8 +17,9 @@ module.exports = function (dbinyectada){
     async function agregar (body){
         const alerta = {
             id: body.id,
-            nombre: body.nombre,
+            titulo: body.titulo,
             descripcion: body.descripcion,
+            zona: body.zona
         }
         const respuesta = await db.agregar(TABLA, alerta);
         var insertID = 0;
