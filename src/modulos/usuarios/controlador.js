@@ -1,4 +1,4 @@
-const TABLA = 'usuarios';
+const TABLA = 'usuario';
 const auth = require('../auth')
 module.exports = function (dbinyectada){
 
@@ -19,7 +19,9 @@ module.exports = function (dbinyectada){
         const usuario = {
             id: body.id,
             nombre: body.nombre,
-            activo: body.activo,
+            apellidos: body.apellidos,
+            telefono: body.telefono,
+            rol: body.rol
         }
         const respuesta = await db.agregar(TABLA, usuario);
         var insertID = 0;
@@ -34,8 +36,8 @@ module.exports = function (dbinyectada){
         if(body.usuario || body.password){
                respuesta2 = await auth.agregar({
                 id: insertID,
-                usuario: body.usuario,
-                password: body.password
+                correo: body.correo,
+                contrasena: body.contrasena
 
             })
         }

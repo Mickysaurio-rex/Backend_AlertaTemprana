@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', todos);
 router.get('/:id', uno);
 router.post('/', agregar)
-router.put('/', eliminar);
+router.delete('/', eliminar);
 async function todos(req, res, next){
     try {
         const items = await controlador.todos();

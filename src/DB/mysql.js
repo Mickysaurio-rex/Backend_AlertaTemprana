@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const config = require('../config')
 const {error} = require("../red/respuestas");
 
@@ -6,7 +6,8 @@ const dbconfig = {
     host: config.mysql.host,
     user: config.mysql.user,
     password: config.mysql.password,
-    database: config.mysql.database
+    database: config.mysql.database,
+    port: config.mysql.port
 }
 
 let conexion;
@@ -16,9 +17,11 @@ function conMysql(){
     conexion.connect((err) => {
         if(err){
             console.log('[db err]', err);
+            console.log(dbconfig);
             setTimeout(conMysql, 200);
         }else{
             console.log('DB conectada <3');
+            console.log(dbconfig);
         }
     });
 
