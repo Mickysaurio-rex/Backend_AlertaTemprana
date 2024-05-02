@@ -9,6 +9,7 @@ const alertas = require('./modulos/alertas/rutas');
 const estado = require('./modulos/estado/rutas');
 const tipo_alerta=require('./modulos/tipo_alerta/rutas');
 const tipo_desastre=require('./modulos/tipo_desastre/rutas');
+const zona=require('./modulos/zonas/rutas');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/api/alertas', alertas)
 app.use('/api/estado', estado)
 app.use('/api/tipo_alerta',tipo_alerta)
 app.use('/api/tipo_desastre', tipo_desastre);
+app.use('/api/zona', zona);
 app.use(error);
 
 module.exports = app;
