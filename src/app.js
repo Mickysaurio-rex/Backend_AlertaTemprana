@@ -6,6 +6,8 @@ const auth = require('./modulos/auth/rutas');
 const cors = require('cors');
 const error = require('./red/errors');
 const alertas = require('./modulos/alertas/rutas');
+const estado = require('./modulos/estado/rutas');
+const tipo_alerta=require('./modulos/tipo_alerta/rutas');
 
 const app = express();
 
@@ -25,6 +27,8 @@ app.set('port', config.app.port);
 app.use('/api/usuarios', usuarios)
 app.use('/api/auth', auth)
 app.use('/api/alertas', alertas)
+app.use('/api/estado', estado)
+app.use('/api/tipo_alerta',tipo_alerta)
 app.use(error);
 
 module.exports = app;
