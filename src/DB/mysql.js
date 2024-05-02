@@ -70,6 +70,14 @@ function eliminar(tabla, data){
     });
 }
 
+function get_by_order(tabla){
+    return new Promise((resolve,reject) => {
+        conexion.query(`SELECT * FROM ${tabla} ORDER BY nombre`,(error, result) => {
+            return error ? reject(error) : resolve(result);
+        })
+    });
+}
+
 function query(tabla, consulta){
     return new Promise((resolve,reject) => {
         conexion.query(`SELECT * FROM ${tabla} WHERE ?`,consulta,(error, result) => {
@@ -83,5 +91,6 @@ module.exports = {
     uno,
     agregar,
     eliminar,
-    query
+    query,
+    get_by_order
 }
