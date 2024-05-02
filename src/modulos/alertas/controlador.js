@@ -25,7 +25,8 @@ module.exports = function (dbinyectada){
             id_zona: body.id_zona,
             id_estado: body.id_estado,
             id_tipo_alerta: body.id_tipo_alerta,
-            id_tipo_desastre: body.id_tipo_desastre 
+            id_tipo_desastre: body.id_tipo_desastre,
+            id_usuario: body.id_usuario
         }
         const respuesta = await db.agregar(TABLA, alerta);
         var insertID = 0;
