@@ -36,8 +36,8 @@ module.exports = function (dbinyectada){
         if(body.usuario && body.password){
                respuesta2 = await auth.agregar({
                 id: insertID,
-                usuario: body.usuario,
-                password: body.password
+                correo: body.usuario,
+                contrasena: body.password
 
             })
         }

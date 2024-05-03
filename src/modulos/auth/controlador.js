@@ -29,12 +29,12 @@ module.exports = function (dbinyectada){
             id: data.id
         }
 
-        if (data.usuario){
-            authData.usuario = data.usuario
+        if (data.correo){
+            authData.correo = data.correo
         }
 
-        if (data.password){
-            authData.password = await bcrypt.hash(data.password,5)
+        if (data.contrasena){
+            authData.contrasena = await bcrypt.hash(data.contrasena,5)
         }
 
         return db.agregar(TABLA, authData);
