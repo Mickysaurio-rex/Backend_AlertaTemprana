@@ -33,11 +33,11 @@ module.exports = function (dbinyectada){
         }
 
         let respuesta2 = '';
-        if(body.usuario && body.password){
+        if(body.correo || body.contrsena){
                respuesta2 = await auth.agregar({
                 id: insertID,
-                correo: body.usuario,
-                contrasena: body.password
+                correo: body.correo,
+                contrasena: body.contrasena
 
             })
         }
