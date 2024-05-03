@@ -16,7 +16,7 @@ module.exports = function (dbinyectada){
             .then(resultado => {
                 if(resultado === true){
                     //Generar un token
-                    return auth.asignarToken({...data});
+                    return true;
                 }else{
                     //Generar error
                     throw new Error('Información Invalida')
