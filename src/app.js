@@ -23,7 +23,7 @@ app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-//configuracion
+//configuracion ghjffh
 app.set('port', config.app.port);
 
 //rutas
