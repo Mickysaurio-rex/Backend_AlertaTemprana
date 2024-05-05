@@ -11,7 +11,7 @@ module.exports = function (dbinyectada){
     }
 
     function uno (id){
-        return db.uno(TABLA, id);
+        return db.get_alerts_by_user('alertas', id);
     }
 
     async function agregar (body){

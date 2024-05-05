@@ -5,7 +5,7 @@ const controlador = require('./index');
 
 const router = express.Router();
 router.get('/', todos);
-router.get('/:id', uno);
+router.get('/:id', get_alerts_by_user);
 router.post('/', agregar)
 router.delete('/', eliminar);
 async function todos(req, res, next){
@@ -17,7 +17,7 @@ async function todos(req, res, next){
     }
 }
 
-async function uno(req, res, next){
+async function get_alerts_by_user(req, res, next){
     try {
         const items = await controlador.uno(req.params.id);
         respuestas.success(req, res, items, 200)
