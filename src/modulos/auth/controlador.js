@@ -16,7 +16,7 @@ module.exports = function (dbinyectada){
             .then(resultado => {
                 if(resultado === true){
                     //Generar un token
-                    return true;
+                    return data;
                 }else{
                     //Generar error
                     throw new Error('Información Invalida')
