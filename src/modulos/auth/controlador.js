@@ -10,9 +10,9 @@ module.exports = function (dbinyectada){
     }
 
     async function login(usuario, password){
-        const data = await db.query(TABLA, {usuario: usuario});
+        const data = await db.query(TABLA, {correo: usuario});
 
-        return bcrypt.compare(password, data.password)
+        return bcrypt.compare(password, data.contrasena)
             .then(resultado => {
                 if(resultado === true){
                     //Generar un token
