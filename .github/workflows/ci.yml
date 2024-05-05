@@ -5,16 +5,19 @@ on:
     branches:
       - main
       - 'feature/**'
+      - pruebas
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3 # Actualizado a v3
+      with:
+        fetch-depth: 0
 
     - name: Use Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3 # Actualizado a v3
       with:
         node-version: '20'
 
@@ -23,3 +26,11 @@ jobs:
 
     - name: Run Tests
       run: echo 'hola funca'
+
+    - name: Merge to pruebas and Run Tests
+      if: github.ref == 'refs/heads/feature/**' 
+      run: |
+        git fetch origin pruebas
+        git checkout pruebas
+        git merge --no-ff ${{ github.sha }}
+        echo 'hola funca?'
