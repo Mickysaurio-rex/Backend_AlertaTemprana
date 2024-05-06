@@ -7,7 +7,8 @@ const controlador = require('./index');
 
 const router = express.Router();
 
-router.get('/login', login);
+router.post('/login', login);
+
 async function login(req, res, next){
     try {
         const token = await controlador.login(req.body.usuario, req.body.password);

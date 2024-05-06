@@ -1,4 +1,4 @@
-const TABLA = 'estado';
+const TABLA = 'tipo_alerta';
 module.exports = function (dbinyectada){
 
     let db = dbinyectada;

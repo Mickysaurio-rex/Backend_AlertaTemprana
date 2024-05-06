@@ -6,6 +6,11 @@ const auth = require('./modulos/auth/rutas');
 const cors = require('cors');
 const error = require('./red/errors');
 const alertas = require('./modulos/alertas/rutas');
+const estado = require('./modulos/estado/rutas');
+const tipo_alerta=require('./modulos/tipo_alerta/rutas');
+const tipo_desastre=require('./modulos/tipo_desastre/rutas');
+const zona=require('./modulos/zonas/rutas');
+const numeros_emergencia=require('./modulos/numeros_emergencia/rutas');
 
 const app = express();
 
@@ -18,13 +23,18 @@ app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-//configuracion
+//configuracion ghjffh
 app.set('port', config.app.port);
 
 //rutas
 app.use('/api/usuarios', usuarios)
 app.use('/api/auth', auth)
 app.use('/api/alertas', alertas)
+app.use('/api/estado', estado)
+app.use('/api/tipo_alerta',tipo_alerta)
+app.use('/api/tipo_desastre', tipo_desastre);
+app.use('/api/zona', zona);
+app.use('/api/numeros_emergencia', numeros_emergencia);
 app.use(error);
 
 module.exports = app;

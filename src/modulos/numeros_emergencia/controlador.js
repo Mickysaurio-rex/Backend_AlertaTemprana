@@ -1,4 +1,4 @@
-const TABLA = 'estado';
+const TABLA = 'numeros_emergencia';
 module.exports = function (dbinyectada){
 
     let db = dbinyectada;
@@ -14,9 +14,14 @@ module.exports = function (dbinyectada){
         return db.uno(TABLA, id);
     }
 
+    function get_by_order(){
+        return db.get_by_order(TABLA);
+    }
+
     return{
         todos,
         uno,
+        get_by_order
     }
 
 }

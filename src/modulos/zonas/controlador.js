@@ -1,4 +1,4 @@
-const TABLA = 'estado';
+const TABLA = 'zona';
 module.exports = function (dbinyectada){
 
     let db = dbinyectada;
