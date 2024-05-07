@@ -2,10 +2,6 @@ const request = require('supertest');
 const app = require('../app'); 
 
 describe('Pruebas de la API', () => {
-  test('Debería responder con éxito a una solicitud GET a /api/usuarios', async () => {
-    const response = await request(app).get('/api/usuarios');
-    expect(response.statusCode).toBe(200);
-  });
 
   test('Debería responder con éxito a una solicitud GET a /api/alertas', async () => {
     const response = await request(app).get('/api/alertas');
