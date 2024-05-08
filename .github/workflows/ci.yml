@@ -20,5 +20,13 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
+    - name: Set up environment variables
+      run: |
+        echo "MYSQL_HOST=${{ secrets.MY_SECRET_SQL_HOST }}" >> $GITHUB_ENV
+        echo "MYSQL_USER=${{ secrets.MY_SECRET_SQL_USER }}" >> $GITHUB_ENV
+        echo "MYSQL_PASSWORD=${{ secrets.MY_SECRET_SQL_PASSWORD }}" >> $GITHUB_ENV
+        echo "MYSQL_DB=${{ secrets.MY_SECRET_SQL_DB }}" >> $GITHUB_ENV
+        echo "MYSQL_PORT=${{ secrets.MY_SECRET_SQL_PORT }}" >> $GITHUB_ENV
+
     - name: Run Tests
       run: npm run test
