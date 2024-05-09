@@ -86,6 +86,14 @@ function query(tabla, consulta){
     });
 }
 
+function get_alerts_publish(tabla, consulta){
+    return new Promise((resolve,reject) => {
+        conexion.query(`SELECT * FROM ${tabla} WHERE ?`,consulta,(error, result) => {
+            return error ? reject(error) : resolve(result);
+        })
+    });
+}
+
 function get_alerts_by_user(tabla, id){
     return new Promise((resolve,reject) => {
         conexion.query(`SELECT * FROM ${tabla} WHERE id_usuario=${id}`,(error, result) => {
@@ -101,5 +109,6 @@ module.exports = {
     eliminar,
     query,
     get_by_order,
-    get_alerts_by_user
+    get_alerts_by_user,
+    get_alerts_publish
 }
