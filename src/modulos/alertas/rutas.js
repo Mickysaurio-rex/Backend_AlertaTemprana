@@ -8,6 +8,8 @@ router.get('/', todos);
 router.get('/:id', get_alerts_by_user);
 router.post('/', agregar)
 router.delete('/', eliminar);
+router.post('/get_alerts_publish', gte_items_publish);
+
 async function todos(req, res, next){
     try {
         const items = await controlador.todos();
@@ -51,5 +53,17 @@ async function eliminar(req, res, next){
     }
 
 }
+
+
+async function gte_items_publish(req, res, next){
+    try {
+        const items = await controlador.get_alerts_publish(req.body.estado);
+        respuestas.success(req, res, items, 200)
+    }catch(err){
+       next(err);
+    }
+
+}
+
 
 module.exports = router;

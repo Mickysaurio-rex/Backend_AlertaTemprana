@@ -42,11 +42,17 @@ module.exports = function (dbinyectada){
     function eliminar (body){
         return db.eliminar(TABLA, body);
     }
+
+    async function get_alerts_publish(estado){
+        return db.get_alerts_publish(TABLA, {id_estado: estado})
+    }
+
     return{
         todos,
         uno,
         eliminar,
-        agregar
+        agregar,
+        get_alerts_publish
     }
 
 }
